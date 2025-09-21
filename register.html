@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crear cuenta — EiraMind</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo"><img src="images/logo_EiraMind.png" alt="EiraMind" width="34" height="34"></span>
+        <span class="brand__text">Eira<span class="brand__text--accent">Mind</span></span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#">Psicólogos en línea</a>
+        <a href="#">Precios</a>
+        <a href="#">Opiniones</a>
+        <a href="#">Blog</a>
+        <a href="#">Empresas</a>
+      </nav>
+      <div class="nav__cta"><a class="btn btn--outline" href="login.html">Iniciar sesión</a></div>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="auth">
+    <div class="container">
+      <div class="auth__card">
+        <div class="auth__left">
+          <h2 class="auth__title">Crear cuenta</h2>
+          <form class="auth__form" action="#" method="post" autocomplete="on">
+            <label class="input"><input type="text" name="name" placeholder="Nombre completo" autocomplete="name" required></label>
+            <label class="input"><input type="email" name="email" placeholder="Email" autocomplete="email" required></label>
+            <label class="input"><input type="contraseña" name="contraseña" placeholder="contraseña" autocomplete="new-contraseña" minlength="6" required></label>
+            <label class="input"><input type="contraseña" name="confirm" placeholder="Confirmar contraseña" autocomplete="new-contraseña" minlength="6" required></label>
+
+            <button class="btn auth__submit" type="submit">Crear cuenta</button>
+            <p class="auth__small">¿Ya tienes cuenta? <a class="link-cta" href="login.html">Inicia sesión</a></p>
+          </form>
+        </div>
+
+        <aside class="auth__right">
+          <h3>¡Bienvenido!</h3>
+          <p>Crea tu cuenta para reservar sesiones, chatear con tu terapeuta y llevar tu progreso.</p>
+          <a class="auth__cta" href="login.html">Iniciar sesión</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><p>© 2025 EiraMind. Todos los derechos reservados.</p></div></footer>
+
+  <script>
+    const b=document.querySelector(".hamburger"), m=document.querySelector(".menu");
+    b?.addEventListener("click",()=>{const e=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",String(!e));m.classList.toggle("menu--open")});
+  </script>
+</body>
+</html>

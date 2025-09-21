@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión — EiraMind</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- (Opcional) Banner -->
+  <div class="top-banner">
+    <p>
+    Descubre a tu psicólogo ideal. 
+    <a href="#test" class="top-banner__link">Haz nuestro test gratuito aquí ✨</a>
+  </p>
+  </div>
+
+  <!-- NAV BAR (reutiliza la misma que ya tienes) -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo"><img src="images/logo_EiraMind.png" alt="EiraMind" width="34" height="34"></span>
+        <span class="brand__text">Eira<span class="brand__text--accent">Mind</span></span>
+      </a>
+
+      <nav class="menu" aria-label="Principal">
+        <a href="#">Psicólogos en línea</a>
+        <a href="#">Precios</a>
+        <a href="#">Opiniones</a>
+        <a href="#">Blog</a>
+        <a href="#">Empresas</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--outline" href="login.html">Iniciar sesión</a>
+        <a class="btn btn--primary" href="index.html#comenzar">Comenzar</a>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- SECCIÓN AUTH (la misma que te pasé) -->
+  <section id="auth" class="auth">
+    <div class="container">
+      <div class="auth__card">
+        <div class="auth__left">
+          <h2 class="auth__title">Sign In</h2>
+
+          <div class="auth__social">
+            <button aria-label="Google">G</button>
+            <button aria-label="Facebook">f</button>
+            <button aria-label="GitHub">⌂</button>
+            <button aria-label="LinkedIn">in</button>
+          </div>
+
+          <p class="auth__hint">Correo</p>
+
+          <form class="auth__form" onsubmit="event.preventDefault();">
+            <label class="input"><input type="email" placeholder="Email" required /></label>
+            <label class="input"><input type="password" placeholder="Password" required /></label>
+
+            <div class="auth__links">
+              <a href="#" class="link-muted">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button class="btn btn--primary auth__submit" type="submit">Iniciar sesión</button>
+          </form>
+        </div>
+
+        <aside class="auth__right">
+          <h3>¡Hola!</h3>
+          <p>Regístrese con sus datos personales para utilizar todas las funciones del sitio.</p>
+          <a href="#" class="btn btn--white auth__cta">Registrarse</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p>© 2025 EiraMind. Todos los derechos reservados.</p></div>
+  </footer>
+
+  <script>
+    // menú móvil
+    const burger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    burger?.addEventListener("click", () => {
+      const expanded = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("menu--open");
+    });
+  </script>
+</body>
+</html>

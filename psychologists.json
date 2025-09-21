@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Dra. Ana Pérez",
+    "role": "Psicóloga clínica",
+    "tags": ["Ansiedad", "TCC", "Autoestima"],
+    "photo": "https://images.unsplash.com/photo-1601968177507-a5e8f1f57c0e?q=80&w=600&auto=format&fit=crop"
+  },
+  {
+    "name": "Lic. Marco Ruiz",
+    "role": "Terapeuta",
+    "tags": ["Depresión", "Duelo", "Pareja"],
+    "photo": "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=600&auto=format&fit=crop"
+  },
+  {
+    "name": "Mtra. Sofía Navas",
+    "role": "Psicóloga laboral",
+    "tags": ["Estrés", "Burnout", "Trabajo"],
+    "photo": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=600&auto=format&fit=crop"
+  }
+]

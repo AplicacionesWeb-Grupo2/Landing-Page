@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EiraMind</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="top-banner">
+  <p>
+    Descubre a tu psicólogo ideal. 
+    <a href="#test" class="top-banner__link">Haz nuestro test gratuito aquí ✨</a>
+  </p>
+</div>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__logo">
+          <img src="images/logo_EiraMind.png" alt="EiraMind" width="34" height="34">
+        </span>
+        <span class="brand__text">Eira<span class="brand__text--accent">Mind</span></span>
+      </a>
+
+      <nav class="menu" aria-label="Principal">
+        <a href="#">Psicólogos en línea</a>
+        <a href="#">Precios</a>
+        <a href="#">Opiniones</a>
+        <a href="#">Blog</a>
+        <a href="#">Empresas</a>
+      </nav>
+
+      <div class="nav__cta">
+       <a class="btn btn--outline" href="login.html">Iniciar sesión</a>
+        <a class="btn btn--primary" href="#">Comenzar</a>
+      </div>
+
+      <!-- Botón hamburguesa para móviles -->
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <h1 class="gradient-text">La ayuda correcta, en el momento correcto</h1>
+        <p class="lead">
+          Toma terapia psicológica por videollamada de forma fácil, segura y privada.
+          Encuentra a tu psicólogo y comienza hoy mismo.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--xl btn--primary" href="#profesionales">Ver psicólogos en línea</a>
+          <div class="trust">
+            <img src="https://i.pravatar.cc/28?img=11" alt="Persona 1" />
+            <img src="https://i.pravatar.cc/28?img=22" alt="Persona 2" />
+            <img src="https://i.pravatar.cc/28?img=33" alt="Persona 3" />
+            <span>Más de 40 mil personas nos eligieron</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="video-card" aria-label="Presentación">
+        <div class="video-frame">
+          <img
+            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop"
+            alt="Captura de una videollamada"
+            loading="lazy"
+          />
+          <button class="play" aria-label="Reproducir video">▶</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="schedule">
+    <div class="container">
+      <h2 class="schedule__title">Reserva una hora con un psicólogo</h2>
+      <p class="schedule__subtitle">
+        Selecciona el día para tu sesión. El listado se actualiza automáticamente cada día.
+      </p>
+      <div id="dateScroller" class="date-scroller" data-days="10"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Terapia en línea. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- CHATBOT (movido dentro del body) -->
+  <div id="chatbot" class="cb">
+    <button id="cb-toggle" class="cb__bubble" aria-label="Abrir chat">💬</button>
+
+    <div class="cb__window" role="dialog" aria-labelledby="cb-title" aria-modal="false">
+      <header class="cb__header">
+        <div>
+          <h3 id="cb-title">Mindcito</h3>
+          <p class="cb__subtitle">¿En qué puedo ayudarte?</p>
+        </div>
+        <button id="cb-close" class="cb__close" aria-label="Cerrar">✕</button>
+      </header>
+
+      <div id="cb-messages" class="cb__messages" aria-live="polite"></div>
+
+      <div class="cb__quick">
+        <button data-msg="precios">Precios</button>
+        <button data-msg="psicologos">Psicólogos</button>
+        <button data-msg="como-funciona">¿Cómo funciona?</button>
+      </div>
+
+      <form id="cb-form" class="cb__form" autocomplete="off">
+        <input id="cb-input" type="text" placeholder="Escribe tu mensaje..." />
+        <button class="cb__send" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Menú móvil
+    const burger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    burger?.addEventListener("click", () => {
+      const expanded = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("menu--open");
+    });
+  </script>
+
+  <script>
+    /* ===== Chatbot simple por reglas ===== */
+    (() => {
+      const el = (s, ctx=document) => ctx.querySelector(s);
+      const scroller = document.getElementById('dateScroller');
+      const TOTAL_DAYS = Number(scroller?.dataset.days || 10);
+      const KEY = 'agenda-selected-date';
+
+      // ----- Agenda (días dinámicos) -----
+      const fmtDow = new Intl.DateTimeFormat('es-ES', { weekday: 'short' });
+      const fmtISO = (d) => d.toISOString().slice(0,10);
+      const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
+      function render(days = TOTAL_DAYS){
+        if(!scroller) return;
+        scroller.innerHTML = '';
+        const today = startOfDay(new Date());
+        const saved = localStorage.getItem(KEY);
+
+        for (let i = 0; i < days; i++){
+          const d = new Date(today);
+          d.setDate(today.getDate() + i);
+          const iso = fmtISO(d);
+          const dow = fmtDow.format(d).toUpperCase().replace('.','');
+          const dayNum = String(d.getDate()).padStart(2,'0');
+
+          const btn = document.createElement('button');
+          btn.className = 'day-pill';
+          btn.type = 'button';
+          btn.dataset.date = iso;
+          btn.innerHTML = `<span class="day-pill__dow">${dow}</span><span class="day-pill__num">${dayNum}</span>`;
+          if (saved === iso) btn.classList.add('is-selected');
+          btn.addEventListener('click', () => {
+            scroller.querySelectorAll('.day-pill.is-selected').forEach(b => b.classList.remove('is-selected'));
+            btn.classList.add('is-selected');
+            localStorage.setItem(KEY, iso);
+          });
+          scroller.appendChild(btn);
+        }
+      }
+      render();
+      const msUntilTomorrow = () => {
+        const now = new Date();
+        const tmr = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
+        return tmr - now;
+      };
+      setTimeout(() => { render(); setInterval(render, 86400000); }, msUntilTomorrow());
+
+      // ----- Chatbot -----
+      const bot = el('#chatbot');
+      const toggle = el('#cb-toggle');
+      const win = el('.cb__window');
+      const closeBtn = el('#cb-close');
+      const messages = el('#cb-messages');
+      const form = el('#cb-form');
+      const input = el('#cb-input');
+      const quick = el('.cb__quick');
+
+      const FAQ = [
+        { keys: ['precio','precios','costo','plan'], answer: 'Nuestros planes empiezan desde s/150 por sesión. También tenemos paquetes mensuales. ¿Te comparto el detalle por correo?' },
+        { keys: ['psicologo','psicólogos','terapeuta','especialista'], answer: 'Trabajamos con psicólogos certificados. Puedes ver perfiles, experiencia y disponibilidad antes de agendar.' },
+        { keys: ['agenda','agendar','cita','sesion','sesión','reservar'], answer: 'Para agendar: eliges psicólogo, horario y realizas el pago. Recibirás el enlace de videollamada por email.' },
+        { keys: ['funciona','como funciona','proceso','pasos'], answer: '1) Elige un psicólogo, 2) Programa tu sesión, 3) Conéctate por videollamada segura. ¡Listo!' },
+        { keys: ['seguridad','privacidad','datos'], answer: 'Tu información se maneja de forma privada y encriptada. Sólo el profesional asignado puede verla.' },
+        { keys: ['contacto','soporte','ayuda'], answer: 'Puedes escribirnos a soporte@tu-dominio.com y respondemos en breve.' },
+      ];
+
+      const state = { awaitingName: false, awaitingEmail: false, lead: { name: '', email: '' } };
+      const scrollToEnd = () => { messages.scrollTop = messages.scrollHeight; };
+      function addMessage(text, from='bot'){
+        const item = document.createElement('div');
+        item.className = `cb__msg cb__msg--${from}`;
+        item.innerHTML = `<div class="cb__bubblemsg">${text}</div>`;
+        messages.appendChild(item);
+        scrollToEnd();
+      }
+      function openChat(){
+        win.classList.add('is-open');
+        toggle.setAttribute('aria-expanded','true');
+        if (!win.dataset.greeted){
+          addMessage('¡Hola! Soy Mindcito 🤖. Puedo ayudarte con precios, cómo funciona y agendar tu sesión.');
+          win.dataset.greeted = '1';
+        }
+        input.focus();
+      }
+      function closeChat(){
+        win.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+      toggle.addEventListener('click', openChat);
+      closeBtn.addEventListener('click', closeChat);
+      quick.addEventListener('click', e => {
+        if (e.target.matches('button[data-msg]')){
+          input.value = e.target.textContent;
+          form.dispatchEvent(new Event('submit', {cancelable:true}));
+        }
+      });
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        if (state.awaitingName){ state.lead.name = text; state.awaitingName = false; addMessage('Gracias. ¿Cuál es tu correo?'); state.awaitingEmail = true; return; }
+        if (state.awaitingEmail){ state.lead.email = text; state.awaitingEmail = false; addMessage(`Perfecto, ${state.lead.name}. Enviaremos la info a ${state.lead.email}.`); return; }
+        const ans = FAQ.find(x => x.keys.some(k => text.toLowerCase().includes(k)))?.answer;
+        if (ans) addMessage(ans);
+        else { addMessage('No estoy seguro de eso 🤔. ¿Te comparto precios y disponibilidad por correo?'); state.awaitingName = true; addMessage('¿Me compartes tu nombre?'); }
+      });
+    })();
+  </script>
+</body>
+</html>
