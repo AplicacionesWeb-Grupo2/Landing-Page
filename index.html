@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EiraMind</title>
+  <title>EiraMind - Terapia psicológica online</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -26,16 +26,18 @@
       </a>
 
       <nav class="menu" aria-label="Principal">
-        <a href="#">Psicólogos en línea</a>
-        <a href="#">Precios</a>
-        <a href="#">Opiniones</a>
-        <a href="#">Blog</a>
-        <a href="#">Empresas</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+        <a href="#contacto">Contacto</a>
       </nav>
 
       <div class="nav__cta">
-       <a class="btn btn--outline" href="login.html">Iniciar sesión</a>
-        <a class="btn btn--primary" href="#">Comenzar</a>
+        <!-- Botón "Comenzar ahora" que redirige al frontend -->
+        <a class="btn btn--primary btn--xl" href="https://eiramindfront.netlify.app" target="_blank">
+          Comenzar ahora
+        </a>
       </div>
 
       <!-- Botón hamburguesa para móviles -->
@@ -46,7 +48,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="container hero__grid">
       <div class="hero__text">
         <h1 class="gradient-text">La ayuda correcta, en el momento correcto</h1>
@@ -56,7 +58,10 @@
         </p>
 
         <div class="hero__actions">
-          <a class="btn btn--xl btn--primary" href="#profesionales">Ver psicólogos en línea</a>
+          <!-- Botón "Ver psicólogos en línea" que redirige al frontend -->
+          <a class="btn btn--xl btn--primary" href="https://eiramindfront.netlify.app" target="_blank">
+            Ver psicólogos en línea
+          </a>
           <div class="trust">
             <img src="https://i.pravatar.cc/28?img=11" alt="Persona 1" />
             <img src="https://i.pravatar.cc/28?img=22" alt="Persona 2" />
@@ -79,51 +84,251 @@
     </div>
   </section>
 
-  <!-- AGENDA -->
-  <section class="schedule">
+  <!-- BENEFICIOS -->
+  <section class="benefits" id="beneficios">
     <div class="container">
-      <h2 class="schedule__title">Reserva una hora con un psicólogo</h2>
-      <p class="schedule__subtitle">
-        Selecciona el día para tu sesión. El listado se actualiza automáticamente cada día.
+      <h2 class="benefits__title">Beneficios de EiraMind</h2>
+      <p class="benefits__subtitle">
+        Descubre por qué miles de personas eligen nuestra plataforma para su bienestar mental
       </p>
-      <div id="dateScroller" class="date-scroller" data-days="10"></div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🕒</div>
+          <h3 class="benefit-title">Disponibilidad 24/7</h3>
+          <p class="benefit-description">
+            Agenda tus sesiones cuando lo necesites. Encuentra el horario perfecto 
+            con psicólogos disponibles en tu zona horaria.
+          </p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
+          <h3 class="benefit-title">Totalmente Confidencial</h3>
+          <p class="benefit-description">
+            Tu privacidad está garantizada. Sesiones encriptadas y protegidas 
+            bajo estrictos protocolos de confidencialidad.
+          </p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">👨‍⚕️</div>
+          <h3 class="benefit-title">Profesionales Certificados</h3>
+          <p class="benefit-description">
+            Conecta con psicólogos verificados y especializados. Encuentra al 
+            profesional ideal para tus necesidades específicas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="team" id="equipo">
+    <div class="container">
+      <h2 class="team__title">Nuestro Equipo</h2>
+      <p class="team__subtitle">
+        Conoce a los profesionales que hacen posible tu bienestar mental
+      </p>
+      
+      <div class="team-grid">
+        <!-- Andy Alejandro Mio Mejia -->
+        <div class="team-card">
+          <div class="team-photo">
+            A
+          </div>
+          <h3 class="team-name">Andy Alejandro Mio Mejia</h3>
+          <p class="team-role">Desarrollador Full Stack</p>
+          <p class="team-description">
+            Especialista en desarrollo de aplicaciones web y móviles.
+          </p>
+        </div>
+        
+        <!-- Rolando Andre Torres Diaz -->
+        <div class="team-card">
+          <div class="team-photo">
+            R
+          </div>
+          <h3 class="team-name">Rolando Andre Torres Diaz</h3>
+          <p class="team-role">Desarrollador Backend</p>
+          <p class="team-description">
+            Experto en arquitectura de servidores y bases de datos.
+          </p>
+        </div>
+        
+        <!-- Liam Anderson Villugas Jeronimo -->
+        <div class="team-card">
+          <div class="team-photo">
+            L
+          </div>
+          <h3 class="team-name">Liam Anderson Villugas Jeronimo</h3>
+          <p class="team-role">Desarrollador Frontend</p>
+          <p class="team-description">
+            Especializado en interfaces de usuario y experiencia de usuario.
+          </p>
+        </div>
+        
+        <!-- Diego Rodrigo Pumahualcca Garcia -->
+        <div class="team-card">
+          <div class="team-photo">
+            D
+          </div>
+          <h3 class="team-name">Diego Rodrigo Pumahualcca Garcia</h3>
+          <p class="team-role">Diseñador UI/UX</p>
+          <p class="team-description">
+            Creador de interfaces intuitivas y experiencias memorables.
+          </p>
+        </div>
+        
+        <!-- Henry Jaredt Montes Ramos -->
+        <div class="team-card">
+          <div class="team-photo">
+            H
+          </div>
+          <h3 class="team-name">Henry Jaredt Montes Ramos</h3>
+          <p class="team-role">Project Manager</p>
+          <p class="team-description">
+            Coordinador de proyectos y estrategias de desarrollo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="about" id="sobre-nosotros">
+    <div class="container">
+      <h2 class="about__title">Sobre Nosotros</h2>
+      <p class="about__subtitle">
+        Conoce la historia detrás de EiraMind y nuestro compromiso con tu bienestar mental
+      </p>
+      
+      <div class="about-grid">
+        <div class="about-content">
+          <p class="about-text">
+            EiraMind nació de la visión de hacer la salud mental accesible para todos. 
+            Somos un equipo de profesionales apasionados por la tecnología y el bienestar 
+            psicológico, uniendo ambos mundos para crear una plataforma que realmente marque 
+            la diferencia en la vida de las personas.
+          </p>
+          
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">🎯</div>
+              <div class="about-feature-text">
+                <h4>Nuestra Misión</h4>
+                <p>Democratizar el acceso a la salud mental mediante tecnología innovadora y servicios de calidad.</p>
+              </div>
+            </div>
+            
+            <div class="about-feature">
+              <div class="about-feature-icon">🌟</div>
+              <div class="about-feature-text">
+                <h4>Nuestra Visión</h4>
+                <p>Ser la plataforma líder en terapia online en Latinoamérica, llegando a millones de personas.</p>
+              </div>
+            </div>
+            
+            <div class="about-feature">
+              <div class="about-feature-icon">💙</div>
+              <div class="about-feature-text">
+                <h4>Nuestros Valores</h4>
+                <p>Empatía, innovación, confidencialidad y compromiso con el bienestar de nuestros usuarios.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-video">
+          <!-- Placeholder para el video del equipo -->
+          <div class="about-video-placeholder">
+            🎥 Video About The Team
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <h2 class="contact__title">Contacto</h2>
+      <p class="contact__subtitle">
+        ¿Tienes preguntas? Estamos aquí para ayudarte
+      </p>
+      
+      <div class="contact-grid">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p>info@eiramind.com<br>soporte@eiramind.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h3>Teléfono</h3>
+              <p>+51 987 654 321<br>Lunes a Viernes: 9:00 - 18:00</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Dirección</h3>
+              <p>Av. Psicología 123<br>Lima, Perú</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div class="contact-details">
+              <h3>Redes Sociales</h3>
+              <p>Facebook: /EiraMind<br>Instagram: @eiramind</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Formulario de contacto -->
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+            </div>
+            
+            <button type="submit" class="contact-submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Terapia en línea. Todos los derechos reservados.</p>
+      <p>© 2025 EiraMind - Terapia en línea. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- CHATBOT (movido dentro del body) -->
-  <div id="chatbot" class="cb">
-    <button id="cb-toggle" class="cb__bubble" aria-label="Abrir chat">💬</button>
-
-    <div class="cb__window" role="dialog" aria-labelledby="cb-title" aria-modal="false">
-      <header class="cb__header">
-        <div>
-          <h3 id="cb-title">Mindcito</h3>
-          <p class="cb__subtitle">¿En qué puedo ayudarte?</p>
-        </div>
-        <button id="cb-close" class="cb__close" aria-label="Cerrar">✕</button>
-      </header>
-
-      <div id="cb-messages" class="cb__messages" aria-live="polite"></div>
-
-      <div class="cb__quick">
-        <button data-msg="precios">Precios</button>
-        <button data-msg="psicologos">Psicólogos</button>
-        <button data-msg="como-funciona">¿Cómo funciona?</button>
-      </div>
-
-      <form id="cb-form" class="cb__form" autocomplete="off">
-        <input id="cb-input" type="text" placeholder="Escribe tu mensaje..." />
-        <button class="cb__send" type="submit">Enviar</button>
-      </form>
-    </div>
-  </div>
 
   <!-- SCRIPTS -->
   <script>
@@ -136,118 +341,5 @@
       menu.classList.toggle("menu--open");
     });
   </script>
-
-  <script>
-    /* ===== Chatbot simple por reglas ===== */
-    (() => {
-      const el = (s, ctx=document) => ctx.querySelector(s);
-      const scroller = document.getElementById('dateScroller');
-      const TOTAL_DAYS = Number(scroller?.dataset.days || 10);
-      const KEY = 'agenda-selected-date';
-
-      // ----- Agenda (días dinámicos) -----
-      const fmtDow = new Intl.DateTimeFormat('es-ES', { weekday: 'short' });
-      const fmtISO = (d) => d.toISOString().slice(0,10);
-      const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
-
-      function render(days = TOTAL_DAYS){
-        if(!scroller) return;
-        scroller.innerHTML = '';
-        const today = startOfDay(new Date());
-        const saved = localStorage.getItem(KEY);
-
-        for (let i = 0; i < days; i++){
-          const d = new Date(today);
-          d.setDate(today.getDate() + i);
-          const iso = fmtISO(d);
-          const dow = fmtDow.format(d).toUpperCase().replace('.','');
-          const dayNum = String(d.getDate()).padStart(2,'0');
-
-          const btn = document.createElement('button');
-          btn.className = 'day-pill';
-          btn.type = 'button';
-          btn.dataset.date = iso;
-          btn.innerHTML = `<span class="day-pill__dow">${dow}</span><span class="day-pill__num">${dayNum}</span>`;
-          if (saved === iso) btn.classList.add('is-selected');
-          btn.addEventListener('click', () => {
-            scroller.querySelectorAll('.day-pill.is-selected').forEach(b => b.classList.remove('is-selected'));
-            btn.classList.add('is-selected');
-            localStorage.setItem(KEY, iso);
-          });
-          scroller.appendChild(btn);
-        }
-      }
-      render();
-      const msUntilTomorrow = () => {
-        const now = new Date();
-        const tmr = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
-        return tmr - now;
-      };
-      setTimeout(() => { render(); setInterval(render, 86400000); }, msUntilTomorrow());
-
-      // ----- Chatbot -----
-      const bot = el('#chatbot');
-      const toggle = el('#cb-toggle');
-      const win = el('.cb__window');
-      const closeBtn = el('#cb-close');
-      const messages = el('#cb-messages');
-      const form = el('#cb-form');
-      const input = el('#cb-input');
-      const quick = el('.cb__quick');
-
-      const FAQ = [
-        { keys: ['precio','precios','costo','plan'], answer: 'Nuestros planes empiezan desde s/150 por sesión. También tenemos paquetes mensuales. ¿Te comparto el detalle por correo?' },
-        { keys: ['psicologo','psicólogos','terapeuta','especialista'], answer: 'Trabajamos con psicólogos certificados. Puedes ver perfiles, experiencia y disponibilidad antes de agendar.' },
-        { keys: ['agenda','agendar','cita','sesion','sesión','reservar'], answer: 'Para agendar: eliges psicólogo, horario y realizas el pago. Recibirás el enlace de videollamada por email.' },
-        { keys: ['funciona','como funciona','proceso','pasos'], answer: '1) Elige un psicólogo, 2) Programa tu sesión, 3) Conéctate por videollamada segura. ¡Listo!' },
-        { keys: ['seguridad','privacidad','datos'], answer: 'Tu información se maneja de forma privada y encriptada. Sólo el profesional asignado puede verla.' },
-        { keys: ['contacto','soporte','ayuda'], answer: 'Puedes escribirnos a soporte@tu-dominio.com y respondemos en breve.' },
-      ];
-
-      const state = { awaitingName: false, awaitingEmail: false, lead: { name: '', email: '' } };
-      const scrollToEnd = () => { messages.scrollTop = messages.scrollHeight; };
-      function addMessage(text, from='bot'){
-        const item = document.createElement('div');
-        item.className = `cb__msg cb__msg--${from}`;
-        item.innerHTML = `<div class="cb__bubblemsg">${text}</div>`;
-        messages.appendChild(item);
-        scrollToEnd();
-      }
-      function openChat(){
-        win.classList.add('is-open');
-        toggle.setAttribute('aria-expanded','true');
-        if (!win.dataset.greeted){
-          addMessage('¡Hola! Soy Mindcito 🤖. Puedo ayudarte con precios, cómo funciona y agendar tu sesión.');
-          win.dataset.greeted = '1';
-        }
-        input.focus();
-      }
-      function closeChat(){
-        win.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded','false');
-      }
-      toggle.addEventListener('click', openChat);
-      closeBtn.addEventListener('click', closeChat);
-      quick.addEventListener('click', e => {
-        if (e.target.matches('button[data-msg]')){
-          input.value = e.target.textContent;
-          form.dispatchEvent(new Event('submit', {cancelable:true}));
-        }
-      });
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const text = input.value.trim();
-        if (!text) return;
-        addMessage(text, 'user');
-        input.value = '';
-        if (state.awaitingName){ state.lead.name = text; state.awaitingName = false; addMessage('Gracias. ¿Cuál es tu correo?'); state.awaitingEmail = true; return; }
-        if (state.awaitingEmail){ state.lead.email = text; state.awaitingEmail = false; addMessage(`Perfecto, ${state.lead.name}. Enviaremos la info a ${state.lead.email}.`); return; }
-        const ans = FAQ.find(x => x.keys.some(k => text.toLowerCase().includes(k)))?.answer;
-        if (ans) addMessage(ans);
-        else { addMessage('No estoy seguro de eso 🤔. ¿Te comparto precios y disponibilidad por correo?'); state.awaitingName = true; addMessage('¿Me compartes tu nombre?'); }
-      });
-    })();
-  </script>
 </body>
 </html>
-
